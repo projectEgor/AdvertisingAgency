@@ -1,0 +1,27 @@
+﻿@model List<AdAgency.Models.AdCategory>
+@{
+    ViewData["Title"] = "Управление категориями";
+}
+
+<h2>Категории рекламы</h2>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Цена</th>
+        <th>Действия</th>
+    </tr>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.CategoryName</td>
+            <td>@category.CategoryDescription</td>
+            <td>@category.CategoryCost ₽</td>
+            <td>
+                <a href="/Manager/EditCategory/@category.CategoryId">Изменить</a> |
+                <a href="/Manager/DeleteCategory/@category.CategoryId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Manager/AddCategory">Добавить категорию</a>

@@ -1,0 +1,22 @@
+﻿@model List<AdAgency.Models.User>
+@{
+    ViewData["Title"] = "Список менеджеров";
+}
+
+<h2>Менеджеры</h2>
+<table>
+    <tr>
+        <th>Email</th>
+        <th>Действия</th>
+    </tr>
+    @foreach (var manager in Model)
+    {
+        <tr>
+            <td>@manager.Email</td>
+            <td>
+                <a href="/Admin/DeleteManager/@manager.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Admin/AddManager">Добавить менеджера</a>

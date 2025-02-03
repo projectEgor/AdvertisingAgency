@@ -4,8 +4,8 @@
     {
         public int RequestId { get; set; }
         public string RequestStatus { get; set; }
-        public string ClientMessage { get; set; }
         public DateTime RequestDate { get; set; }
+        public int ClientId { get; set; }
 
     }
 }

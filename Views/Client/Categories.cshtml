@@ -1,0 +1,21 @@
+﻿@model List<AdAgency.Models.AdCategory>
+@{
+    ViewData["Title"] = "Каталог рекламы";
+}
+
+<h2>Категории рекламы</h2>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Цена</th>
+    </tr>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.CategoryName</td>
+            <td>@category.CategoryDescription</td>
+            <td>@category.CategoryCost ₽</td>
+        </tr>
+    }
+</table>
