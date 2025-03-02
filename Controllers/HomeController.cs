@@ -1,8 +1,9 @@
 using System.Diagnostics;
-using AdAgency.Models;
+using AdvAgency.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AdAgency.Controllers
+namespace AdvAgency.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,7 +19,26 @@ namespace AdAgency.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin() 
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "User")]
+        public IActionResult User()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Manager")]
+        public IActionResult Manager()
         {
             return View();
         }

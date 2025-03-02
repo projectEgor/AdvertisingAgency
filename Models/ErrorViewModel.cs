@@ -1,4 +1,4 @@
-namespace AdAgency.Models
+namespace AdvAgency.Models
 {
     public class ErrorViewModel
     {
