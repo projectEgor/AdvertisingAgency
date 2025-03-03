@@ -1,0 +1,62 @@
+@model AdvAgency.ViewModels.UserManagementViewModel
+@{
+    ViewData["Title"] = "Управление пользователями";
+}
+
+<h1>Управление пользователями</h1>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form asp-action="UserManagement" method="get">
+            <div class="input-group">
+                <input type="text" class="form-control" name="searchString" value="@ViewData["CurrentFilter"]" placeholder="Поиск по имени или email">
+                <select class="form-select" name="role">
+                    <option value="">Все роли</option>
+                    @foreach (var role in Model.Roles)
+                    {
+                        <option value="@role" selected="@(ViewData["CurrentRole"]?.ToString() == role)">@role</option>
+                    }
+                </select>
+                <button type="submit" class="btn btn-primary">Поиск</button>
+                <a asp-action="UserManagement" class="btn btn-secondary">Сбросить</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 text-end">
+        <a asp-controller="Admin" asp-action="StaffManagement" class="btn btn-info">Управление персоналом</a>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="UserManagement" asp-route-sortOrder="@ViewData["NameSortParam"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-role="@ViewData["CurrentRole"]">
+                    Имя пользователя
+                </a>
+            </th>
+            <th>
+                <a asp-action="UserManagement" asp-route-sortOrder="@ViewData["EmailSortParam"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-role="@ViewData["CurrentRole"]">
+                    Email
+                </a>
+            </th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-sm btn-primary">Редактировать</a>
+                        <a asp-action="RoleManagement" asp-route-userId="@user.Id" class="btn btn-sm btn-info">Роли</a>
+                        <a asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-sm btn-danger">Удалить</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

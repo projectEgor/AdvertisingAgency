@@ -2,7 +2,7 @@
 @model RegisterViewModel;
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Регистрация";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
@@ -39,7 +39,7 @@
 
             <input type="submit" value="Зарегистрироваться" class="btn btn-success w-100 p-2" />
             <p class="text-center mt-2">
-                Уже есть аккаунт? <a asp-controller="Index" asp-action="Login" class="text-decoration-none">Войти</a>
+                Уже есть аккаунт? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Войти</a>
             </p>
 
             <div class="text-center">

@@ -1,0 +1,26 @@
+@model AdvAgency.Models.Users
+@{
+    ViewData["Title"] = "Удаление пользователя";
+}
+
+<h1>Удаление пользователя</h1>
+
+<div class="alert alert-danger">
+    <h3>Вы уверены, что хотите удалить этого пользователя?</h3>
+</div>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Имя пользователя</dt>
+        <dd class="col-sm-9">@Model.UserName</dd>
+        
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+    </dl>
+    
+    <form asp-action="DeleteUser">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-action="UserManagement" class="btn btn-secondary">Отмена</a>
+    </form>
+</div> 

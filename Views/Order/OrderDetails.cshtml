@@ -1,0 +1,33 @@
+@model AdvAgency.Models.AdOrder
+@{
+    ViewData["Title"] = "Детали заказа";
+}
+
+<h1>Детали заказа @Model.Id</h1>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Категория рекламы</dt>
+            <dd class="col-sm-9">@Model.AdvertCategory.Name</dd>
+            
+            <dt class="col-sm-3">Описание</dt>
+            <dd class="col-sm-9">@Model.Description</dd>
+            
+            <dt class="col-sm-3">Дата начала</dt>
+            <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+            
+            <dt class="col-sm-3">Дата окончания</dt>
+            <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
+            
+            <dt class="col-sm-3">Статус</dt>
+            <dd class="col-sm-9">@Model.Status</dd>
+            
+            <dt class="col-sm-3">Общая стоимость</dt>
+            <dd class="col-sm-9">@Model.TotalPrice.ToString("C")</dd>
+            
+            <dt class="col-sm-3">Дата создания</dt>
+            <dd class="col-sm-9">@Model.CreatedAt.ToString("g")</dd>
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+@model AdvAgency.Models.AdvertCategory
+
+@{
+    ViewData["Title"] = "Детали категории рекламы";
+}
+
+<h1>Детали категории рекламы</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Название</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Описание</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+
+        <dt class="col-sm-3">Базовая цена</dt>
+        <dd class="col-sm-9">@Model.BasePrice.ToString("C")</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редактировать</a>
+    <a asp-action="Index" class="btn btn-secondary">Назад к списку</a>
+</div> 

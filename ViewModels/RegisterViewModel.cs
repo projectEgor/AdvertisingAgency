@@ -12,7 +12,7 @@ namespace AdvAgency.ViewModels
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Пароль обязателен")]
-        [StringLength(40, MinimumLength = 6, ErrorMessage = "Пароль должен содержать от {1} до {0} символов")]
+        [StringLength(40, MinimumLength = 6, ErrorMessage = "Пароль должен содержать от 6 до 40 символов")]
         [DataType(DataType.Password)]
         [Compare("ConfirmPassword", ErrorMessage = "Пароли не совпадают")]
         public string Password { get; set; }

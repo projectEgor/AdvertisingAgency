@@ -1,0 +1,18 @@
+@model AdvAgency.Models.AdOrder
+
+<h2>Удалить заказ</h2>
+
+<div>
+    <h4>Вы уверены, что хотите удалить этот заказ?</h4>
+    <div>
+        <h5>Категория: @Model.AdvertCategory.Name</h5>
+        <p>Описание: @Model.Description</p>
+        <p>Статус: @Model.Status</p>
+    </div>
+    <form asp-action="DeleteOrder" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>

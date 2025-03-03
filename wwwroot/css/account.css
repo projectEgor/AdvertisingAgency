@@ -1,9 +1,9 @@
 ﻿.account-container {
-    background-image: url('../images/898220aa97035ad75f85a65e7255fb52.jpg');
     background-size: cover;
+    background-image: url(../images/i.webp);
     background-position: center;
     background-repeat: repeat-y;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;

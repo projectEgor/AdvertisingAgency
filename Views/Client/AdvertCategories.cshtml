@@ -1,0 +1,22 @@
+@model IEnumerable<AdvAgency.Models.AdvertCategory>
+
+@{
+    ViewData["Title"] = "Категории рекламы";
+}
+
+<h2>Категории рекламы</h2>
+
+<div class="row">
+    @foreach (var category in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@category.Name</h5>
+                    <p class="card-text">@category.Description</p>
+                    <a href="#" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

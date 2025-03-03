@@ -1,0 +1,40 @@
+@model IEnumerable<AdvAgency.Models.AdOrder>
+@{
+    ViewData["Title"] = "Все заказы";
+}
+
+<h1>Все заказы</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Клиент</th>
+            <th>Категория</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>Статус</th>
+            <th>Стоимость</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@(item.User?.Email ?? "Нет данных")</td>
+                <td>@(item.AdvertCategory?.Name ?? "Нет данных")</td>
+                <td>@(item.StartDate.ToShortDateString() ?? "Нет данных")</td>
+                <td>@(item.EndDate.ToShortDateString() ?? "Нет данных")</td>
+                <td>@(item.Status ?? "Нет данных")</td>
+                <td>@(item.TotalPrice.ToString("C") ?? "Нет данных")</td>
+                <td>
+                    <a asp-action="EditOrder" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Редактировать</a>
+                    <a asp-action="OrderDetails" asp-route-id="@item.Id" class="btn btn-sm btn-info">Детали</a>
+                    <a asp-action="DeleteOrder" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 
